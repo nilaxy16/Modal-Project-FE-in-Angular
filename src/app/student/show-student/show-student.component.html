@@ -1,0 +1,59 @@
+<div class="modal fade" id="addstudent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLabel">Add Student</h5> -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-add-student [heading]='heading' [editstudent]="editstudent"></app-add-student>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+<table class="table table-striped m-3">
+  <thead>
+    <tr>
+        <th>No</th>
+        <th>Student ID</th>
+        <th>Full Name</th>
+        <th>Mobile</th>
+        <th>Department Name</th>
+        <th>Course</th>
+        <th>Options</th>
+    </tr>
+    </thead>
+    <tbody>
+      
+    <tr *ngFor="let student of students; let i = index">
+      <td>{{ i+1 }}</td>
+      <td>{{student.studentId}}</td>
+      <td>{{student.fullName}}</td>
+      <td>{{student.mobile}}</td>
+      <td>{{student.deptName}}</td>
+      <td>{{student.course}}</td>
+      <td>
+        <button type="button" class="btn btn-primary" 
+          (click)="EditStudent(student.studentId)">Edit</button>
+          <button type="button" class="btn btn-danger mx-2" (click)="deleteClick(student)">Delete</button> 
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#addstudent" data-keyborad="false">
+  Add Student
+</button>
+
+<div id="editstudent" *ngIf="editstudent">
+  <app-add-student [heading]='heading' [StudentId]= "studentId" [editstudent]="editstudent"></app-add-student>
+</div>
+
+
+
+
+   

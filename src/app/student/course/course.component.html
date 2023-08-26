@@ -1,0 +1,70 @@
+<table class="table table-striped m-3">
+    <thead>
+      <tr>
+          <th>No</th>
+          <th>CourseId</th>
+          <th>Course Name</th>
+          <th>Department Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses; let i = index">
+        <td>{{ i+1 }}</td>
+        <td>{{course.courseId}}</td>
+        <td>{{course.courseName}}</td>
+        <td>{{course.deptName}}</td>
+      </tr>
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#addcourse" data-keyborad="false">
+  Add Course
+</button>
+
+
+
+
+
+
+
+<div class="modal fade" id="addcourse" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Course</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="form-group row pb-2">
+            <label class="col-sm-4">Course ID:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" [(ngModel)]="course.courseId" placeholder="Enter the courseid.....">
+            </div>
+          </div>
+        
+          <div class="form-group row pb-2">
+            <label class="col-sm-4">Course Name:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" [(ngModel)]="course.courseName"
+              placeholder="Enter the coursename.....">
+            </div>
+          </div>
+        
+        <div class="form-group row pb-2">
+            <label class="col-sm-4">DepartmentId:</label>
+            <div class="col-sm-8">
+                <select name="department" id="DeptName" [(ngModel)]="course.deptId">
+                    <option value="{{department}}" *ngFor="let department of departments;">{{department}}</option>
+                </select>
+            </div>
+        </div>
+        
+        <button (click)="addCourse()" class="btn btn-primary ms-5">Add</button> 
+        
+        <button type="button" class="btn btn-danger ms-2" data-bs-dismiss="modal">Close</button> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

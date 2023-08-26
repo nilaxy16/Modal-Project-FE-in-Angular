@@ -1,0 +1,136 @@
+<div class="container m-3">
+    <h3 class="modal-title" id="exampleModalLabel">{{heading}}</h3>
+    <div class="form-group row pb-2">
+        <label class="col-sm-4">Student ID:</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" [(ngModel)]="student.studentId" placeholder="Enter your studentid.....">
+        </div>
+    </div>
+
+    <div class="form-group row pb-2">
+        <label class="col-sm-4">Student Fullname:</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" [(ngModel)]="student.fullName"
+            placeholder="Enter your fullname.....">
+        </div>
+    </div>
+
+    <div class="form-group row pb-2">
+        <label class="col-sm-4">Mobile:</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control"  [(ngModel)]="student.mobile"
+            placeholder="Enter your mobile.....">
+        </div>
+    </div>
+
+    <div class="form-group row pb-2">
+        <label class="col-sm-4">DepartmentId:</label>
+        <div class="col-sm-8">
+            <select name="department" id="DeptName" [(ngModel)]="student.deptId">
+                <option value="{{department}}" *ngFor="let department of departments;">{{department}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row pb-2" *ngIf="editstudent">
+        <label class="col-sm-4">Course Name:</label>
+        <div class="col-sm-8">
+            <select name="courses" id="courses" [(ngModel)]="student.course">
+                <option value="{{course.courseName}}" *ngFor="let course of courses;">{{course.courseName}}</option>
+            </select> 
+        </div>
+    </div>
+
+    <button (click)="addStudent()" class="btn btn-primary ms-5" *ngIf="!editstudent">Add</button> 
+
+    <button (click)="updateStudent()" class="btn btn-primary ms-5" *ngIf="editstudent">Update</button> 
+
+    <button type="button" class="btn btn-danger ms-2" data-bs-dismiss="modal" *ngIf="!editstudent">Close</button> 
+
+    <button type="button" class="btn btn-danger ms-2" (click)="closeClick()" *ngIf="editstudent">Close</button> 
+
+</div>
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <div class="form">
+        <form [formGroup]="addForm" #myform="ngForm">
+  
+        <div class="row gutters pb-2">
+            <label for="studentid" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">Student ID: </label>
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12" >
+                <input type="text" id="studentid" placeholder="Enter your studentid...." class="ms-3" [(ngModel)]="student.studentId" 
+                name="studentid" formControlName="studentid" class="form-control">
+                <span class="text-danger">
+                <div *ngIf="addForm.controls['studentid'].touched">
+                    <p *ngIf="addForm.controls['studentid'].errors?.['required']">*StudentId is Required.</p>
+                </div>
+                </span>
+            </div>
+        </div>
+
+        <div class="row gutters pb-2">
+            <label for="fullname" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">Student Fullname: </label>
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+                <input type="text" id="fullname" placeholder="Enter your fullname...." class="ms-3" [(ngModel)]="student.fullName"
+                name="fullname" formControlName="fullname" class="form-control">
+                <span class="text-danger">
+                <div *ngIf="addForm.controls['fullname'].touched">
+                    <p *ngIf="addForm.controls['fullname'].errors?.['required']">Fullname is Required.</p>
+                </div>
+                </span>
+            </div>
+        </div>
+        
+        <div class="row gutters pb-2">
+            <label for="mobile" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">Student Mobile: </label>
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12" >
+                <input type="number" id="mobile" placeholder="Enter your mobile...." class="ms-3" [(ngModel)]="student.mobile" 
+                name="mobile" formControlName="mobile" class="form-control">
+                <span class="text-danger">
+                <div *ngIf="addForm.controls['mobile'].touched">
+                    <p *ngIf="addForm.controls['mobile'].errors?.['required']">Mobile no is Required.</p>
+                </div>
+                </span>
+            </div>
+        </div>
+
+        <div class="row gutters pb-2">
+            <label for="deptid" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">DepartmentId: </label>
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+                <select name="department" id="DeptName" [(ngModel)]="student.deptId">
+                    <option value="{{department}}" *ngFor="let department of departments;">{{department}}</option>
+                </select>
+            </div>
+        </div>
+
+        <button (click)="addStudent()" class="btn btn-primary ms-5">Add</button> 
+
+        <button type="button" class="btn btn-danger ms-2" data-bs-dismiss="modal">Close</button>
+
+    </form>
+</div> -->
+
+
+
+
+
+

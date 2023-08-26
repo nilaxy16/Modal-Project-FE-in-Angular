@@ -1,0 +1,88 @@
+<table class="table table-striped m-3">
+    <thead>
+      <tr>
+          <th>No</th>
+          <th>DeptmentId</th>
+          <th>Department Name</th>
+          <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let department of departments; let i = index">
+        <td>{{ i+1 }}</td>
+        <td>{{department.deptId}}</td>
+        <td>{{department.deptName}}</td>
+        <td>
+          <button type="button" (click)="ShowStudent(department.deptId)" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#showstudents">Show Students</button>
+          <button type="button" (click)="ShowCourses(department.deptId)" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#showcourses">Show Courses</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+
+<div class="modal fade" id="showstudents" tabindex="-1" aria-labelledby="showdeptStud" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Students Details of {{deptId}}</h5>
+          <!-- /{{filterDept.deptName}} -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped m-3">
+            <thead>
+              <tr>
+                  <th>No</th>
+                  <th>Student ID</th>
+                  <th>Full Name</th>
+                  <th>Mobile</th>
+                  <th>Department Name</th>
+              </tr>
+              </thead>
+              <tbody>
+              
+              <tr *ngFor="let student of DeptStudents; let i = index">
+                <td>{{ i+1 }}</td>
+                <td>{{student.studentId}}</td>
+                <td>{{student.fullName}}</td>
+                <td>{{student.mobile}}</td>
+                <td>{{student.deptName}}</td>
+              </tr>
+      
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="showcourses" tabindex="-1" aria-labelledby="showdeptCourse" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Course Details of {{deptId}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped m-3">
+          <thead>
+            <tr>
+                <th>No</th>
+                <th>CourseId</th>
+                <th>Course Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            <tr *ngFor="let course of DeptCourses; let i = index">
+              <td>{{ i+1 }}</td>
+              <td>{{course.courseId}}</td>
+              <td>{{course.courseName}}</td>
+            </tr>
+    
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
